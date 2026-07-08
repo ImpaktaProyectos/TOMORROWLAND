@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  @apply bg-night text-ivory font-sans antialiased;
+  min-height: 100dvh;
+  background-image:
+    radial-gradient(1200px 600px at 50% -10%, rgba(43,75,214,0.20), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(58,42,107,0.25), transparent 55%),
+    radial-gradient(700px 500px at 5% 30%, rgba(79,214,200,0.08), transparent 55%);
+  background-attachment: fixed;
+}
+
+/* Campo de estrellas muy sutil */
+.starfield::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(243,234,214,0.6), transparent),
+    radial-gradient(1px 1px at 75% 20%, rgba(243,234,214,0.5), transparent),
+    radial-gradient(1px 1px at 40% 70%, rgba(216,182,103,0.5), transparent),
+    radial-gradient(1px 1px at 85% 60%, rgba(79,214,200,0.5), transparent),
+    radial-gradient(1px 1px at 15% 80%, rgba(243,234,214,0.4), transparent),
+    radial-gradient(1px 1px at 60% 45%, rgba(243,234,214,0.35), transparent);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+.glass {
+  background: linear-gradient(180deg, rgba(12,16,32,0.72), rgba(7,10,22,0.72));
+  border: 1px solid rgba(216,182,103,0.18);
+  backdrop-filter: blur(8px);
+}
+.glass:hover { border-color: rgba(216,182,103,0.38); }
+
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(216,182,103,0.6), transparent);
+}
+
+.display { font-family: var(--font-serif); font-weight: 600; letter-spacing: 0.01em; }
+
+.focusable:focus-visible {
+  outline: 2px solid var(--font-sans);
+  outline: 2px solid #4fd6c8;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.chip {
+  @apply inline-flex items-center gap-1 rounded-full border border-gold/30 bg-night-2/60 px-3 py-1 text-xs text-gold-soft;
+}

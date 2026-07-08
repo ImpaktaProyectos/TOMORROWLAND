@@ -1,0 +1,239 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-08T12:24:54.999Z",
+    "totalRows": 265,
+    "totalImported": 265,
+    "uniqueNames": 258,
+    "validPhones": 263,
+    "invalidPhones": 2,
+    "withoutName": 0,
+    "withoutDate": 1,
+    "withoutTime": 0,
+    "withoutDreamville": 0,
+    "uniqueLocations": 110,
+    "uniqueDepartures": 33,
+    "detectedDates": [
+      "2026-06-15",
+      "2026-06-16",
+      "2026-06-18",
+      "2026-06-19",
+      "2026-06-27",
+      "2026-07-10",
+      "2026-07-12",
+      "2026-07-13",
+      "2026-07-14",
+      "2026-07-15",
+      "2026-07-16",
+      "2026-07-17",
+      "2026-07-18",
+      "2026-07-21",
+      "2026-07-22",
+      "2026-07-23",
+      "2026-07-25"
+    ],
+    "detectedDreamville": [
+      "Camp2Camp",
+      "Easy Tent",
+      "Friendship Garden",
+      "Hotel",
+      "Magnificent Greens",
+      "Montagoe"
+    ],
+    "possibleDuplicates": 19,
+    "warnings": 67,
+    "consentColumnDetected": false,
+    "columnMapping": {
+      "timestamp": "Marca temporal",
+      "name": "Nombre y Apellidos / Apodo / NickName",
+      "residence": "¿Dónde Vives?",
+      "departureDate": "¿Qué día Viajas para Tierra Santa?",
+      "departure": "¿Desde dónde viajas?",
+      "departureTime": "¿Hora del Vuelo?",
+      "recharge": "¿Dónde vas a recargar pilas?",
+      "hotel": "Nombre Hotel - Ciudad",
+      "dreamville": "Zona Dreamville",
+      "travelOperator": "¿Cómo Viajas?",
+      "returnDate": "¿Cuándo se acaba el sueño y comienza Depresión?",
+      "instagram": "Instagram / Redes Sociales",
+      "phone": "Número Móvil / Whatsapp"
+    }
+  },
+  "columns": {
+    "sheet": "Respuestas de formulario 1",
+    "headers": [
+      "Marca temporal",
+      "Nombre y Apellidos / Apodo / NickName",
+      "¿Dónde Vives?",
+      "¿Qué día Viajas para Tierra Santa?",
+      "¿Desde dónde viajas?",
+      "¿Hora del Vuelo?",
+      "¿Dónde vas a recargar pilas?",
+      "Nombre Hotel - Ciudad",
+      "Zona Dreamville",
+      "¿Cómo Viajas?",
+      "¿Cuándo se acaba el sueño y comienza Depresión?",
+      "¿Veces en Tierra Santa?",
+      "Estilos Música Preferidos",
+      "¿Te apuntas a la Camiseta?",
+      "Instagram / Redes Sociales",
+      "Número Móvil / Whatsapp"
+    ],
+    "mapping": {
+      "timestamp": "Marca temporal",
+      "name": "Nombre y Apellidos / Apodo / NickName",
+      "residence": "¿Dónde Vives?",
+      "departureDate": "¿Qué día Viajas para Tierra Santa?",
+      "departure": "¿Desde dónde viajas?",
+      "departureTime": "¿Hora del Vuelo?",
+      "recharge": "¿Dónde vas a recargar pilas?",
+      "hotel": "Nombre Hotel - Ciudad",
+      "dreamville": "Zona Dreamville",
+      "travelOperator": "¿Cómo Viajas?",
+      "returnDate": "¿Cuándo se acaba el sueño y comienza Depresión?",
+      "instagram": "Instagram / Redes Sociales",
+      "phone": "Número Móvil / Whatsapp"
+    }
+  },
+  "invalidRecords": [
+    {
+      "sourceRow": 43,
+      "nombre": "Diana Marcela Ortiz",
+      "motivo": "Teléfono ambiguo o incompleto (11 dígitos)",
+      "telefonoRaw": "(507) 66763849"
+    },
+    {
+      "sourceRow": 211,
+      "nombre": "Joselu / Frax",
+      "motivo": "Teléfono vacío o inválido",
+      "telefonoRaw": "0"
+    }
+  ],
+  "duplicates": [
+    {
+      "motivo": "Mismo teléfono",
+      "confianza": "Media",
+      "telefono": "+3464***",
+      "ids": "alejandro-cabello-11 | alex-cabello-164",
+      "filas": "11 | 164"
+    },
+    {
+      "motivo": "Mismo teléfono",
+      "confianza": "Media",
+      "telefono": "+3462***",
+      "ids": "isabel-tena-romero-18 | isabel-tena-romero-142",
+      "filas": "18 | 142"
+    },
+    {
+      "motivo": "Mismo teléfono",
+      "confianza": "Media",
+      "telefono": "+3467***",
+      "ids": "dani-tinte-30 | dani-tinte-138",
+      "filas": "30 | 138"
+    },
+    {
+      "motivo": "Mismo teléfono",
+      "confianza": "Media",
+      "telefono": "+3467***",
+      "ids": "jaime-ibarra-cebrian-38 | jaime-ibarra-cebrian-ibarra-147",
+      "filas": "38 | 147"
+    },
+    {
+      "motivo": "Mismo teléfono",
+      "confianza": "Media",
+      "telefono": "+3468***",
+      "ids": "jose-flores-85 | josebirra-154",
+      "filas": "85 | 154"
+    },
+    {
+      "motivo": "Mismo teléfono",
+      "confianza": "Media",
+      "telefono": "+3466***",
+      "ids": "ruben-95 | ruben-140",
+      "filas": "95 | 140"
+    },
+    {
+      "motivo": "Mismo teléfono",
+      "confianza": "Media",
+      "telefono": "+3469***",
+      "ids": "alba-ballester-127 | alba-ballester-203",
+      "filas": "127 | 203"
+    },
+    {
+      "motivo": "Mismo teléfono",
+      "confianza": "Media",
+      "telefono": "+3463***",
+      "ids": "jose-manuel-valverde-129 | jose-valverde-149",
+      "filas": "129 | 149"
+    },
+    {
+      "motivo": "Mismo teléfono",
+      "confianza": "Media",
+      "telefono": "+3461***",
+      "ids": "ra-185 | raquel-242",
+      "filas": "185 | 242"
+    },
+    {
+      "motivo": "Mismo teléfono",
+      "confianza": "Media",
+      "telefono": "+3463***",
+      "ids": "marcos-gomez-duque-196 | marcos-gomez-duque-200",
+      "filas": "196 | 200"
+    },
+    {
+      "motivo": "Mismo teléfono",
+      "confianza": "Media",
+      "telefono": "+3463***",
+      "ids": "jaime-alfonso-239 | jaime-alfonso-sobrino-254",
+      "filas": "239 | 254"
+    },
+    {
+      "motivo": "Mismo teléfono",
+      "confianza": "Media",
+      "telefono": "+3462***",
+      "ids": "carmen-vinagre-guerrero-car-245 | carmen-vinagre-cardecoche-266",
+      "filas": "245 | 266"
+    },
+    {
+      "motivo": "Mismo nombre y mismos datos de viaje",
+      "confianza": "Alta",
+      "ids": "isabel-tena-romero-18 | isabel-tena-romero-142",
+      "filas": "18 | 142"
+    },
+    {
+      "motivo": "Mismo nombre y mismos datos de viaje",
+      "confianza": "Alta",
+      "ids": "dani-tinte-30 | dani-tinte-138",
+      "filas": "30 | 138"
+    },
+    {
+      "motivo": "Mismo nombre (revisar)",
+      "confianza": "Baja",
+      "ids": "ruben-95 | ruben-140",
+      "filas": "95 | 140"
+    },
+    {
+      "motivo": "Mismo nombre (revisar)",
+      "confianza": "Baja",
+      "ids": "diego-113 | diego-229",
+      "filas": "113 | 229"
+    },
+    {
+      "motivo": "Mismo nombre y mismos datos de viaje",
+      "confianza": "Alta",
+      "ids": "alba-ballester-127 | alba-ballester-203",
+      "filas": "127 | 203"
+    },
+    {
+      "motivo": "Mismo nombre y mismos datos de viaje",
+      "confianza": "Alta",
+      "ids": "ivan-174 | ivan-175",
+      "filas": "174 | 175"
+    },
+    {
+      "motivo": "Mismo nombre y mismos datos de viaje",
+      "confianza": "Alta",
+      "ids": "marcos-gomez-duque-196 | marcos-gomez-duque-200",
+      "filas": "196 | 200"
+    }
+  ]
+}

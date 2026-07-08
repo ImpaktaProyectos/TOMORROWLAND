@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="0%" r="90%">
+      <stop offset="0%" stop-color="#1b2a63"/><stop offset="45%" stop-color="#0c1020"/><stop offset="100%" stop-color="#070a16"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g stroke="#d8b667" stroke-width="1.2" opacity="0.5" fill="#d8b667">
+    <circle cx="180" cy="140" r="4"/><circle cx="1010" cy="120" r="3"/><circle cx="980" cy="480" r="4" fill="#4fd6c8"/>
+    <circle cx="220" cy="500" r="3" fill="#f3ead6"/><circle cx="620" cy="90" r="2.5"/>
+    <path d="M180 140 L620 90 L1010 120 L980 480 L220 500 Z" fill="none"/>
+  </g>
+  <text x="600" y="300" text-anchor="middle" fill="#f3ead6" font-family="Georgia, serif" font-size="86" font-weight="700">People of Tomorrow 2026</text>
+  <text x="600" y="360" text-anchor="middle" fill="#9aa3c0" font-family="Arial, sans-serif" font-size="30">Encuentra a las personas que compartirán tu viaje</text>
+  <text x="600" y="410" text-anchor="middle" fill="#d8b667" font-family="Arial, sans-serif" font-size="22" letter-spacing="4">TOMORROWLAND BELGIUM · WEEKEND 1</text>
+</svg>
