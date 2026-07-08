@@ -20,6 +20,7 @@ export default function Home() {
         </p>
         <div className="gold-rule mx-auto mt-4 max-w-xs" />
       </header>
+      <PersonasClient options={options} />
       <footer className="pb-20 pt-4 text-center text-[11px] text-muted/70">
         <p>Proyecto independiente para organizar el viaje. No es una aplicación oficial de Tomorrowland.</p>
       </footer>

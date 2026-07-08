@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { SlidersHorizontal, X, Loader2, SearchX } from "lucide-react";
+import { Loader2, SearchX } from "lucide-react";
 import type { TravelerPublic } from "@/lib/types";
 import { SearchBar } from "./SearchBar";
 import { TravelerCard } from "./TravelerCard";
@@ -32,7 +32,6 @@ export function PersonasClient({ options }: { options: Options }) {
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [drawer, setDrawer] = useState(false);
   const debounce = useRef<ReturnType<typeof setTimeout>>();
 
   const setState = (s: Partial<FilterState>) => setStateRaw((prev) => ({ ...prev, ...s }));
@@ -51,7 +50,7 @@ export function PersonasClient({ options }: { options: Options }) {
   const fetchData = useCallback(async () => {
     setLoading(true); setError(false);
     try {
-      const res = await fetch(`/api/travelers?${params.toString()}&limit=60`);
+      const res = await fetch(`/api/travelers?${params.toString()}&limit=300`);
       if (!res.ok) throw new Error();
       const data = await res.json();
       setResults(data.results); setTotal(data.pagination.total);
@@ -71,37 +70,31 @@ export function PersonasClient({ options }: { options: Options }) {
 
   return (
     <div className="space-y-5">
-      <header className="pt-2">
-        <h1 className="display text-3xl text-ivory">Directorio de personas</h1>
-        <p className="text-sm text-muted">Busca y filtra a tus compañeros de viaje.</p>
-      </header>
-
+      {/* Barra de búsqueda */}
       <SearchBar defaultValue={search} onSubmitPush={false} onChange={setSearch} />
 
-      <div className="flex items-center justify-between gap-3">
-        <span className="text-sm text-muted" aria-live="polite">
-          {loading ? "Buscando…" : `${total} ${total === 1 ? "persona" : "personas"}`}
-        </span>
-        <div className="flex items-center gap-2">
-          <label className="sr-only" htmlFor="sort">Ordenar</label>
-          <select id="sort" value={sort} onChange={(e) => setSort(e.target.value)}
-            className="focusable min-h-[40px] rounded-lg border border-gold/25 bg-night-2 px-2 py-1 text-xs text-ivory">
-            {sorts.map((s) => <option key={s.v} value={s.v}>{s.l}</option>)}
-          </select>
-          <button onClick={() => setDrawer(true)}
-            className="focusable inline-flex min-h-[40px] items-center gap-1.5 rounded-lg border border-gold/25 px-3 py-1 text-xs text-gold-soft md:hidden">
-            <SlidersHorizontal size={14} aria-hidden /> Filtros
-          </button>
-        </div>
+      {/* Filtros siempre visibles */}
+      <div className="rounded-2xl border border-gold/15 bg-night-2/40 p-4">
+        <FiltersForm options={options} state={state} setState={setState} />
       </div>
 
+      {/* Chips activos */}
       <ActiveChips state={state}
         onClear={(k) => setState({ [k]: "", ...(k === "time" ? { timeTolerance: "0" } : {}) } as Partial<FilterState>)}
         onClearAll={() => { setStateRaw(EMPTY); setSearch(""); }} />
 
-      {/* Filtros escritorio */}
-      <div className="hidden rounded-2xl border border-gold/15 bg-night-2/40 p-4 md:block">
-        <FiltersForm options={options} state={state} setState={setState} />
+      {/* Barra de resultados + ordenar */}
+      <div className="flex items-center justify-between gap-3">
+        <span className="text-sm text-muted" aria-live="polite">
+          {loading ? "Buscando…" : `${total} ${total === 1 ? "persona" : "personas"}`}
+        </span>
+        <label className="flex items-center gap-2 text-xs text-muted">
+          Ordenar
+          <select value={sort} onChange={(e) => setSort(e.target.value)}
+            className="focusable min-h-[36px] rounded-lg border border-gold/25 bg-night-2 px-2 py-1 text-xs text-ivory">
+            {sorts.map((s) => <option key={s.v} value={s.v}>{s.l}</option>)}
+          </select>
+        </label>
       </div>
 
       {/* Resultados */}
@@ -115,7 +108,7 @@ export function PersonasClient({ options }: { options: Options }) {
         <div className="glass rounded-2xl p-8 text-center">
           <SearchX className="mx-auto mb-3 text-gold/50" aria-hidden />
           <p className="text-ivory">No hemos encontrado personas con estos filtros.</p>
-          <p className="mt-1 text-sm text-muted">Prueba ampliando la franja horaria o eliminando algún filtro.</p>
+          <p className="mt-1 text-sm text-muted">Prueba eliminando algún filtro.</p>
         </div>
       ) : (
         <div className="grid gap-3">
@@ -123,27 +116,6 @@ export function PersonasClient({ options }: { options: Options }) {
           {total > results.length && (
             <p className="pt-2 text-center text-xs text-muted">Mostrando {results.length} de {total}. Afina la búsqueda para ver más.</p>
           )}
-        </div>
-      )}
-
-      {/* Drawer móvil */}
-      {drawer && (
-        <div className="fixed inset-0 z-50 md:hidden" role="dialog" aria-modal="true" aria-label="Filtros">
-          <div className="absolute inset-0 bg-black/60" onClick={() => setDrawer(false)} />
-          <div className="absolute inset-x-0 bottom-0 max-h-[85dvh] overflow-y-auto rounded-t-3xl border-t border-gold/25 bg-night-2 p-5"
-            style={{ paddingBottom: "calc(env(safe-area-inset-bottom) + 1rem)" }}>
-            <div className="mb-4 flex items-center justify-between">
-              <h2 className="display text-xl text-ivory">Filtros</h2>
-              <button onClick={() => setDrawer(false)} className="focusable rounded-full p-2 text-muted" aria-label="Cerrar filtros"><X /></button>
-            </div>
-            <FiltersForm options={options} state={state} setState={setState} />
-            <div className="mt-5 flex gap-3">
-              <button onClick={() => { setStateRaw(EMPTY); setSearch(""); }}
-                className="focusable flex-1 rounded-full border border-gold/25 py-3 text-sm text-gold-soft">Limpiar</button>
-              <button onClick={() => setDrawer(false)}
-                className="focusable flex-1 rounded-full bg-cobalt py-3 text-sm font-medium text-white">Ver resultados</button>
-            </div>
-          </div>
         </div>
       )}
     </div>

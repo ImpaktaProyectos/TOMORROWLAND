@@ -13,11 +13,22 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   @apply bg-night text-ivory font-sans antialiased;
   min-height: 100dvh;
-  background-image:
-    radial-gradient(1200px 600px at 50% -10%, rgba(43,75,214,0.20), transparent 60%),
-    radial-gradient(900px 500px at 90% 10%, rgba(58,42,107,0.25), transparent 55%),
-    radial-gradient(700px 500px at 5% 30%, rgba(79,214,200,0.08), transparent 55%);
+  background-image: url("/bg-consciencia.png");
+  background-size: cover;
+  background-position: center top;
   background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: #070a16;
+}
+
+/* Overlay oscuro para legibilidad */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(7,10,22,0.72);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Campo de estrellas muy sutil */
