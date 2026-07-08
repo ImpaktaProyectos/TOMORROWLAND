@@ -15,7 +15,7 @@ const schema = z.object({
   dreamville: z.string().max(60).optional(),
   sort: z.enum(["name", "earliest", "latest", "date"]).optional(),
   page: z.coerce.number().int().min(1).max(1000).optional(),
-  limit: z.coerce.number().int().min(1).max(60).optional(),
+  limit: z.coerce.number().int().min(1).max(300).optional(),
 });
 
 export function GET(req: NextRequest) {

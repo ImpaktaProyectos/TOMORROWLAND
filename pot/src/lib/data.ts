@@ -1,6 +1,6 @@
 // SOLO SERVIDOR. No importar desde componentes de cliente.
 import Fuse from "fuse.js";
-import travelersJson from "../../data/travelers.server.json";
+import travelersJson from "./travelers.server.json";
 import type { Traveler, TravelerPublic } from "./types";
 import { scoreMatch, matchLabel } from "./matching";
 import { normalizeForSearch } from "./normalize/text";
@@ -107,7 +107,7 @@ export function queryTravelers(params: QueryParams) {
   if (cmp[sort]) list = [...list].sort(cmp[sort]);
 
   const page = Math.max(1, params.page ?? 1);
-  const limit = Math.min(60, Math.max(1, params.limit ?? 24));
+  const limit = Math.min(300, Math.max(1, params.limit ?? 300));
   const total = list.length;
   const totalPages = Math.max(1, Math.ceil(total / limit));
   const start = (page - 1) * limit;
